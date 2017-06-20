@@ -1,18 +1,18 @@
 var axios = require('axios');
 
-var id = '';
-var sec = '';
-var params = '?client_id=' + id + '&client_secret' + sec;
+var id = '5bdb95cacb9e5c1786bf';
+var sec = '02eb6bf3e216039d31d7e1288d938e7996ccfbd3';
+var params = "?client_id=" + id + "&client_secret=" + sec;
 
 function getProfile(username) {
-  return axios.get('https://api.github.com/users/' + username)
+  return axios.get('https://api.github.com/users/' + username + params)
     .then(function (user) {
       return user.data;
     });
 }
 
 function getRepos(username) {
-  return axios.get('https://api.github.com/users/' + username + '/repos' + '?per_page=100');
+  return axios.get('https://api.github.com/users/' + username + '/repos' + params + '&per_page=100');
 }
 
 function getStarCount(repos) {
